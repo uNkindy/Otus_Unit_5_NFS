@@ -65,16 +65,13 @@ ____
 
 #### Клиент:
 * Создал точку монтирования в /mnt/otus_share.
-* Примонтировал расшаренную папку __otus_share__, используя следующие настройки: подключение __udp__, версия протокола __nfs - 3__;
-```console
-[root@client vagrant]# mount -t nfs __-o vers=3__ __-o udp__  192.168.56.240:/var/otus_share /mnt/otus_share
-
-192.168.56.240:/var/otus_share on /mnt/otus_share type nfs   (rw,relatime,vers=3,rsize=32768,wsize=32768,namlen=255,hard,proto=udp, timeo=11,retrans=3,sec=sys,mountaddr=192.168.56.240,mountvers=3,mountport=20048,mountproto=udp,local_lock=none,addr=192.168.56.240)  
-```
+* Примонтировал расшаренную папку __otus_share__:
 * Прописал автоматическое монтирование расшаренной директории в __/etc/fstab__:
 ```console
 [root@client vagrant]# cat /etc/fstab   
 192.168.56.240:/var/otus_share /mnt/otus_share nfs proto=udp 0 0  
+[root@client vagrant]# mount
+192.168.56.240:/var/otus_share on /mnt/otus_share type nfs   (rw,relatime,vers=3,rsize=32768,wsize=32768,namlen=255,hard,proto=udp, timeo=11,retrans=3,sec=sys,mountaddr=192.168.56.240,mountvers=3,mountport=20048,mountproto=udp,local_lock=none,addr=192.168.56.240) 
 ```
 ____
 
