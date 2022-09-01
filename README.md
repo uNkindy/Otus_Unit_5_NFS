@@ -74,7 +74,7 @@ ____
 * Прописал автоматическое монтирование расшаренной директории в __/etc/fstab__:
 ```console
 [root@client vagrant]# cat /etc/fstab   
-192.168.56.240:/var/otus_share /mnt/otus_share nfs defaults 0 0  
+192.168.56.240:/var/otus_share /mnt/otus_share nfs proto=udp 0 0  
 ```
 ____
 
