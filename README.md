@@ -7,16 +7,16 @@ ____
 
 #### 2. Сервер:
 * Создал на сервере директории для расшаривания:
-
+```console
 [root@server otus_share]# mkdir /var/otus_share/  
 [root@server otus_share]# mkdir /var/otus_share/upload  
-
+```
 * Прописал данные директории в конфигурационный файл __/etc/exports__:
-
+```console
 [root@server otus_share]# cat /etc/exports  
 /var/otus_share *(rw)  
 /var/otus_share/upload *(rw)  
-
+```
 * Включил использование протокола __UDP__ в конфигурационном файле (параметр __udp=y__ в блоке __[nfsd]__): [/etc/nfs.conf](https://github.com/uNkindy/Otus_Unit_5_NFS/blob/main/nfs.conf);
 * Поднял __firewalld__
 ```console
@@ -33,15 +33,15 @@ ____
 ```
            
 * Установил дефолтную зону __trusted__;
-
+```console
 [root@server otus_share]# firewall-cmd  --set-default-zone=trusted  
 
 [root@server otus_share]# firewall-cmd --get-active-zones  
 trusted  
   interfaces: enp0s3 enp0s8  
-  
+```  
 * Добавил в исключение IP адрес клиента:
-
+```console
 [root@server otus_share]# firewall-cmd --zone=trusted --permanent --add-rich-rule='rule family="ipv4" source address="192.168.56.241" accept'
 
 [root@server otus_share]# firewall-cmd --zone=trusted --list-all  
@@ -60,6 +60,7 @@ trusted (active)
   icmp-blocks:   
   rich rules:   
 	rule family="ipv4" source address="192.168.56.241" accept  
+```
 ____
 
 #### Клиент:
