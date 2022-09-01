@@ -17,9 +17,9 @@ ____
 /var/otus_share *(rw)  
 /var/otus_share/upload *(rw)  
 
-* Включил использование протокола __UDP__ в конфигурационном файле: [/etc/nfs.conf](https://github.com/uNkindy/Otus_Unit_5_NFS/blob/main/nfs.conf);
+* Включил использование протокола __UDP__ в конфигурационном файле (параметр __udp=y__ в блоке __[nfsd]__): [/etc/nfs.conf](https://github.com/uNkindy/Otus_Unit_5_NFS/blob/main/nfs.conf);
 * Поднял __firewalld__
-
+```console
 [root@server otus_share]# systemctl status firewalld  
 ● firewalld.service - firewalld - dynamic firewall daemon  
    Loaded: loaded (/usr/lib/systemd/system/firewalld.service; disabled; vendor >  
@@ -30,6 +30,7 @@ ____
    Memory: 25.1M  
    CGroup: /system.slice/firewalld.service  
            └─4500 /usr/libexec/platform-python -s /usr/sbin/firewalld --nofork   
+```
            
 * Установил дефолтную зону __trusted__;
 
